@@ -91,7 +91,6 @@ export const siteKeywords = [
   "GPT",
   "Falcon",
   "MPT",
-  "Amadeus APIs",
   "Real-time Analysis",
   "Network Monitoring",
   "Meteorological Data",
@@ -132,7 +131,6 @@ export const siteKeywords = [
   
   // Companies & Experience
   "Outlier AI",
-  "Amadeus",
   "El Djazair Information Technology",
   "National Meteorological Office",
   "Data Science",

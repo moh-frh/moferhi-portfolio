@@ -50,37 +50,6 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: "Data Scientist",
-    company: "Amadeus",
-    location: "Nice, France",
-    startDate: "September 2023",
-    endDate: "September 2024",
-    achievements: [
-      {
-        text: "Applied Natural Language Processing (NLP) and historical reservation data to generate strategic pricing insights, optimizing profit margins for travel agencies.",
-      },
-      {
-        text: "Integrated Amadeus APIs and data sources into a conversational AI chatbot, ensuring up-to-date availability, pricing, and booking details for customers.",
-      },
-      {
-        text: "Leveraged Azure Machine Learning and AWS (Amazon Web Services) for scalable training, deployment, and monitoring of AI-driven solutions.",
-      },
-      {
-        text: "Developed a conversational AI chatbot for travel agents using large language models (GPT, Falcon, MPT) to deliver real-time, accurate travel information.",
-      },
-    ],
-    skills: [
-      { name: "NLP" },
-      { name: "Machine Learning" },
-      { name: "Azure ML" },
-      { name: "AWS" },
-      { name: "LLM" },
-      { name: "GPT" },
-      { name: "Python" },
-      { name: "APIs" },
-    ],
-  },
-  {
     title: "Data Analyst",
     company: "El Djazair Information Technology",
     location: "Algeria",
