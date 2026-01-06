@@ -1,12 +1,5 @@
-import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
-
-export const env = createEnv({
-    client: {
-        NEXT_PUBLIC_APP_URL: z.string().min(1).default("http://localhost:3000"),
-    },
-    runtimeEnv: {
-        NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-    },
-    skipValidation: !!process.env.SKIP_ENV_VALIDATION,
-}); 
+export const env = {
+  APP_URL: import.meta.env.VITE_APP_URL ?? "http://localhost:3000",
+  ACTIVE_PROFILE:
+    import.meta.env.VITE_ACTIVE_PROFILE === "java-stack" ? "java-stack" : "data-analyst",
+};

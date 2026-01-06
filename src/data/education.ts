@@ -1,29 +1,5 @@
-export interface Honor {
-  name: string;
-}
+import { education as dataAnalystEducation } from "@/profiles/data-analyst/data/education";
+import { education as javaStackEducation } from "@/profiles/java-stack/data/education";
+import { isJavaStack } from "./_selectProfile";
 
-export interface Activity {
-  name: string;
-}
-
-export interface Education {
-  degree: string;
-  school: string;
-  location: string;
-  startDate: string;
-  endDate: string;
-  gpa: string;
-  honors: Honor[];
-  activities: Activity[];
-}
-
-export const education: Education = {
-  degree: "Master of Computer Science - Software Engineering and Information Processing",
-  school: "",
-  location: "Algeria",
-  startDate: "September 2017",
-  endDate: "June 2019",
-  gpa: "N/A",
-  honors: [],
-  activities: [],
-};
+export const education = isJavaStack() ? javaStackEducation : dataAnalystEducation;

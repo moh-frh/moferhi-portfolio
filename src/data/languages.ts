@@ -1,19 +1,5 @@
-export interface Language {
-  name: string;
-  proficiency: string;
-}
+import { languages as dataAnalystLanguages } from "@/profiles/data-analyst/data/languages";
+import { languages as javaStackLanguages } from "@/profiles/java-stack/data/languages";
+import { isJavaStack } from "./_selectProfile";
 
-export const languages: Language[] = [
-  {
-    name: "English",
-    proficiency: "Advanced",
-  },
-  {
-    name: "Arabic",
-    proficiency: "Native",
-  },
-  {
-    name: "French",
-    proficiency: "Native",
-  },
-];
+export const languages = isJavaStack() ? javaStackLanguages : dataAnalystLanguages;

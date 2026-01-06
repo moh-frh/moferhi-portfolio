@@ -6,8 +6,10 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Projects from './pages/Projects'
-
+import { env } from './env.mjs';
 function App() {
+  
+console.log('Active profile:', env.ACTIVE_PROFILE);
   return (
     <ThemeProvider defaultTheme="system" enableSystem>
       <div className="relative min-h-screen flex flex-col">
