@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Award, Brain, Building2, Cloud, Code, GraduationCap, Sparkles } from "lucide-react";
-// Using regular img tag instead of Next.js Image
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { certifications } from "@/data/certifications";
@@ -10,6 +9,14 @@ import { education } from "@/data/education";
 import { experiences } from "@/data/experience";
 import { hobbies } from "@/data/hobbies";
 import { skillCategories } from "@/data/skills";
+import { professionalSummary } from "@/data/professionalSummary";
+import type { 
+  SkillCategory, 
+  Experience, 
+  Certification, 
+  Hobby, 
+  Education 
+} from "@/types";
 
 export function AboutDetail() {
   return (
@@ -69,29 +76,9 @@ export function AboutDetail() {
               Professional Summary
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>
-                Results-driven Data Scientist with 6+ years of experience in data manipulation, 
-                business intelligence, and advanced analytics. Proven expertise in transforming 
-                raw data into actionable insights to solve business problems and support 
-                data-driven decision-making. Adept at creating clear, goal-oriented reports and 
-                dashboards that simplify complex data for both technical and non-technical stakeholders.
-              </p>
-              <p>
-                My recent achievements include contributing to an annual cost savings of over 200 
-                million dinars and improving operational forecasting accuracy by 20% through 
-                statistical modeling. I&apos;ve developed interactive dashboards to monitor key 
-                performance indicators, applied NLP techniques on user feedback data to extract 
-                sentiment, and leveraged behavioral data to improve user activation and retention. 
-                I&apos;ve also built predictive models to identify reward structures that maximize 
-                user engagement and redemption rates.
-              </p>
-              <p>
-                With expertise in Python, SQL, SAS, Power BI, Tableau, and cloud platforms like 
-                AWS and Azure, I&apos;ve successfully delivered projects across various industries 
-                including travel technology, meteorological services, and information technology. 
-                I&apos;m passionate about data governance, agile methodologies, and mentoring junior 
-                developers to strengthen team capabilities and overall project delivery.
-              </p>
+              {professionalSummary.split('\n\n').map((paragraph: string, index: number) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
           </Card>
         </motion.div>
@@ -108,7 +95,7 @@ export function AboutDetail() {
             Skills & Expertise
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {skillCategories.map((category) => (
+            {skillCategories.map((category: SkillCategory) => (
               <Card
                 key={category.name}
                 className="p-6 backdrop-blur-xl bg-card/50 border-primary/10"
@@ -118,7 +105,7 @@ export function AboutDetail() {
                   <h3 className="text-xl font-semibold">{category.name}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
+                  {category.skills.map((skill: string) => (
                     <Badge key={skill} variant="outline" className={`${category.color}`}>
                       {skill}
                     </Badge>
@@ -141,7 +128,7 @@ export function AboutDetail() {
             Work Experience
           </h2>
           <div className="space-y-6">
-            {experiences.map((exp) => (
+            {experiences.map((exp: Experience) => (
               <Card
                 key={`${exp.title}-${exp.startDate}`}
                 className="p-6 backdrop-blur-xl bg-card/50 border-primary/10"
@@ -160,7 +147,7 @@ export function AboutDetail() {
                   </p>
                 </div>
                 <ul className="space-y-2 text-muted-foreground ml-4">
-                  {exp.achievements.map((achievement) => (
+                  {exp.achievements.map((achievement: { text: string }) => (
                     <li key={`${exp.title}-${achievement.text}`} className="flex">
                       <span className="mr-2">•</span>
                       <span className="flex-1">{achievement.text}</span>
@@ -169,7 +156,7 @@ export function AboutDetail() {
                 </ul>
                 {exp.skills.length > 0 && (
                   <div className="mt-4 flex flex-wrap gap-2">
-                    {exp.skills.map((skill) => (
+                    {exp.skills.map((skill: { name: string }) => (
                       <Badge
                         key={`${exp.title}-${skill.name}`}
                         variant="outline"
@@ -198,7 +185,7 @@ export function AboutDetail() {
             Certifications & Skills
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifications.map((cert) => (
+            {certifications.map((cert: Certification) => (
               <motion.div key={cert.name} whileHover={{ scale: 1.02 }} className="relative">
                 <Card className="p-6 backdrop-blur-xl bg-card/50 border-primary/10 hover:border-primary/30 transition-colors">
                   <div className="flex flex-col gap-4">
@@ -278,7 +265,7 @@ export function AboutDetail() {
                   </div>
                 </div>
                 <div className="mt-3">
-                  {education.honors.map((honor, index) => (
+                  {education.honors.map((honor: { name: string, date?: string }, index: number) => (
                     <Badge
                       key={honor.name}
                       variant="outline"
@@ -317,7 +304,7 @@ export function AboutDetail() {
               Hobbies & Interests
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {hobbies.map((hobby) => (
+              {hobbies.map((hobby: Hobby) => (
                 <div key={hobby.name} className="space-y-2">
                   <Badge variant="outline" className="bg-primary/5 text-base py-2 px-3">
                     {hobby.emoji} {hobby.name}

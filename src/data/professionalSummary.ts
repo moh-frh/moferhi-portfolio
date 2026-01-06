@@ -1,0 +1,15 @@
+import { isJavaStack } from "./_selectProfile";
+
+const dataAnalystSummary = `Results-driven Data Scientist with 6+ years of experience in data manipulation, business intelligence, and advanced analytics. Proven expertise in transforming raw data into actionable insights to solve business problems and support data-driven decision-making. Adept at creating clear, goal-oriented reports and dashboards that simplify complex data for both technical and non-technical stakeholders.
+
+My recent achievements include contributing to an annual cost savings of over 200 million dinars and improving operational forecasting accuracy by 20% through statistical modeling. I've developed interactive dashboards to monitor key performance indicators, applied NLP techniques on user feedback data to extract sentiment, and leveraged behavioral data to improve user activation and retention. I've also built predictive models to identify reward structures that maximize user engagement and redemption rates.
+
+With expertise in Python, SQL, SAS, Power BI, Tableau, and cloud platforms like AWS and Azure, I've successfully delivered projects across various industries including travel technology, meteorological services, and information technology. I'm passionate about data governance, agile methodologies, and mentoring junior developers to strengthen team capabilities and overall project delivery.`;
+
+const javaStackSummary = `Results-driven Java & Spring Boot Developer with 6+ years of experience designing, developing, and maintaining scalable backend systems and RESTful APIs. Proven expertise in building robust, high-performance applications using Java, Spring Boot, Spring Data JPA, and microservices architectures to solve complex business problems and support enterprise-level systems. Adept at translating business requirements into clean, maintainable code and delivering reliable solutions for both technical and non-technical stakeholders.
+
+My recent achievements include contributing to annual cost savings exceeding 200 million dinars by optimizing backend workflows, improving system performance, and refactoring legacy services. I have enhanced operational efficiency and system reliability by implementing asynchronous processing, caching strategies, and database query optimization, resulting in 20%+ improvements in application performance and response times. I've also designed secure APIs, integrated third-party services, and implemented authentication and authorization using Spring Security and JWT.
+
+With strong expertise in Java, Spring Boot, Hibernate/JPA, REST APIs, SQL, PostgreSQL, and experience with cloud platforms such as AWS and Azure, I have successfully delivered backend solutions across industries including travel technology, meteorological services, and information technology. I am passionate about clean architecture, test-driven development, agile methodologies, and mentoring junior developers to strengthen team capabilities and ensure high-quality, scalable software delivery.`;
+
+export const professionalSummary = isJavaStack() ? javaStackSummary : dataAnalystSummary;
